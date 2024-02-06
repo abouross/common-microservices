@@ -1,0 +1,27 @@
+.login-pf .pf-c-button {
+    --pf-c-button--m-primary--BackgroundColor: #117054;
+    --pf-c-button--m-primary--Color: #ffffff
+}
+
+.login-pf .card-pf {
+    --pf-global--primary-color--100: #117054;
+}
+
+div.kc-logo-text {
+    background-position: center;
+    background-size: 100% 100%;
+    height: 225px;
+    width: 300px;
+}
+
+#kc-header-wrapper {
+    padding: 0;
+}
+
+.login-pf-page {
+    padding: 0 0 1rem;
+}
+
+.login-pf-page .login-pf-page-header {
+    margin: 0;
+}

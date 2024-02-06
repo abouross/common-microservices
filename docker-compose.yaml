@@ -1,0 +1,17 @@
+version: "3"
+volumes:
+  db_data:
+    driver: local
+services:
+  keycloak:
+    container_name: cms_keycloak
+    image: keycloak/keycloak:latest
+    command: [ "start-dev", "--import-realm" ]
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    ports:
+      - "9090:8080"
+    volumes:
+      - ./keycloak/realms:/opt/keycloak/data/import
+      - ./keycloak/themes:/opt/keycloak/themes
