@@ -1,0 +1,7 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: ${DISCOVERY_URL:http://localhost:8761/eureka/}
+  instance:
+    instance-id: ${spring.application.name}
+    hostname: ${HOSTNAME:localhost}

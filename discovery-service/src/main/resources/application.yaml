@@ -1,0 +1,18 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: ${INSTANCE_NAME:discovery-service}
+  config:
+    import:
+      - optional:file:${CONFIGS_PATH:configs}/actuator.yaml
+      - optional:file:${CONFIGS_PATH:configs}/logging.yaml
+# Discovery
+eureka:
+  instance:
+    hostname: ${HOSTNAME:localhost}
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: ${DISCOVERY_URL:https://${eureka.instance.hostname}:${server.port}/eureka/}
