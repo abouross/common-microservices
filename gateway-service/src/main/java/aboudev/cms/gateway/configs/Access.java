@@ -12,5 +12,4 @@ public class Access {
     private String method;
     private List<String> roles;
     private String resource;
-    private String adminRole;
 }

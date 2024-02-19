@@ -8,25 +8,10 @@ spring:
       - optional:file:${CONFIGS_PATH:configs}/discovery-client.yaml
       - optional:file:${CONFIGS_PATH:configs}/actuator.yaml
       - optional:file:${CONFIGS_PATH:configs}/logging.yaml
-#  cloud:
-#    gateway:
-#      routes:
-#        - id: audit-service
-#          uri: lb://audit-service
-#          predicates:
-#            - Path=/audits/**
-#            - Method=OPTIONS,GET
+      - optional:file:${CONFIGS_PATH:configs}/gateway.yaml
   security:
     oauth2:
       resourceserver:
         jwt:
           issuer-uri: ${ISSUER_URI:http://localhost:9090/realms/common-microservices}
           audiences: ${AUDIENCES:common-microservices}
-app:
-  cors-origins: ${CORS_ORIGINS:*}
-  accesses:
-    - path: /audits/**
-      method: GET
-      roles: audits
-      resource: common-microservices
-      admin-role: admin

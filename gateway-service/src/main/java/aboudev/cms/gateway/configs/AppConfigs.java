@@ -14,4 +14,5 @@ import java.util.List;
 public class AppConfigs {
     private List<String> corsOrigins;
     private List<Access> accesses;
+    private String adminRole;
 }

@@ -1,0 +1,17 @@
+app:
+  cors-origins: ${CORS_ORIGINS:*}
+  accesses:
+    - path: /audits/**
+      method: GET
+      roles: audits #Value can be a list ex: role1, role2, role3
+      resource: common-microservices
+  admin-role: admin
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: audit-service
+          uri: lb://audit-service
+          predicates:
+            - Path=/audits/**
+            - Method=OPTIONS,GET
