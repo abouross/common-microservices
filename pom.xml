@@ -16,6 +16,7 @@
     <modules>
         <module>discovery-service</module>
         <module>gateway-service</module>
+        <module>audit-service</module>
     </modules>
     <packaging>pom</packaging>
     <properties>

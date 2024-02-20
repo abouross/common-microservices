@@ -1,6 +1,6 @@
 version: "3"
 volumes:
-  db_data:
+  audit_db_data:
     driver: local
 services:
   keycloak:
@@ -15,3 +15,13 @@ services:
     volumes:
       - ./keycloak/realms:/opt/keycloak/data/import
       - ./keycloak/themes:/opt/keycloak/themes
+  audit-db:
+    container_name: audit_db
+    image: mysql:8
+    volumes:
+      - 'audit_db_data:/var/lib/mysql'
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: cms_audit
+      MYSQL_USER: cms_audit
+      MYSQL_PASSWORD: cms_audit_password

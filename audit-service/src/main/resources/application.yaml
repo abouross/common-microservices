@@ -1,0 +1,20 @@
+server:
+  port: 0
+spring:
+  application:
+    name: audit-service
+  config:
+    import:
+      - optional:file:${CONFIGS_PATH:configs}/discovery-client.yaml
+      - optional:file:${CONFIGS_PATH:configs}/actuator.yaml
+      - optional:file:${CONFIGS_PATH:configs}/logging.yaml
+  datasource:
+    url: ${DATASOURCE_URL:jdbc:mysql://localhost:33060/cms_audits}
+    username: ${DATASOURCE_USERNAME:cms_audit}
+    password: ${DATASOURCE_PASSWORD:cms_audit_password}
+    driver-class-name: ${DATASOURCE_DRIVER:com.mysql.cj.jdbc.Driver}
+  jpa:
+    hibernate:
+      ddl-auto: ${JPA_DDL:update}
+    show-sql: ${JPA_SHOW_SQL:true}
+    database: ${DATABASE_TECH:mysql}

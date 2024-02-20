@@ -14,4 +14,4 @@ spring:
           uri: lb://audit-service
           predicates:
             - Path=/audits/**
-            - Method=OPTIONS,GET
+            - Method=OPTIONS,GET, POST
