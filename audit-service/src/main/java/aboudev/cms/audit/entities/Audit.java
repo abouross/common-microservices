@@ -15,8 +15,8 @@ import java.util.Date;
 @AllArgsConstructor
 public class Audit {
     @Id
-    @GeneratedValue(generator = "audit")
-    @SequenceGenerator(name = "audit", allocationSize = 1, sequenceName = "audit")
+    @SequenceGenerator(name = "audit", sequenceName = "audit_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "audit")
     private Long id;
     @Column(nullable = false)
     private String action;
